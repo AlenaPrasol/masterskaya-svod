@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Алёна Прасолова — мастерская Свод</title>
+<meta name="description" content="Визитка для приходов: записки, расписание, сайт и своё лицо приходу из одних рук. Что уже работает, как идёт дело, как написать.">
+<meta name="theme-color" content="#E4E3DE">
+<meta property="og:title" content="Алёна Прасолова — мастерская Свод">
+<meta property="og:description" content="Записки, расписание, сайт и своё лицо — приходу из одних рук. Настрою за неделю, объясню по телефону, останусь рядом.">
+<link rel="icon" href="../assets/svod-znak.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital@0;1&family=PT+Sans&family=Old+Standard+TT&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<style>
+.hero .wrap{grid-template-columns:1.15fr 1fr;min-height:0;padding:40px 40px 56px}
+.hero h1{font-size:44px;line-height:1.15;margin:8px 0 14px;max-width:none}
+.hero h1 small{display:block;font:400 18px/1.4 "PT Sans",Arial,sans-serif;letter-spacing:.02em;color:var(--soft);margin-top:10px}
+.hero p{max-width:520px;font-size:19px}
+.stage{position:relative}
+.stage svg{width:100%;height:auto;display:block;overflow:visible}
+.card-note{font:400 14px "PT Sans",Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase;margin-bottom:14px}
+.works{grid-template-columns:repeat(2,1fr)}
+.sheet{min-height:0}
+.how{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+.how p{margin:0;color:var(--soft);font-size:17px}
+.how b{display:block;font-weight:400;color:var(--ink);font-size:21px;margin-bottom:6px}
+.more{margin-top:34px;font:400 17px "PT Sans",Arial,sans-serif}
+.more a{text-underline-offset:5px}
+@media (max-width:760px){.hero .wrap{grid-template-columns:1fr;padding:22px 20px 40px}.hero h1{font-size:30px}.works,.how{grid-template-columns:1fr}.stage{max-width:360px;margin:0 auto}}
+</style>
+</head>
+<body>
+<svg class="grain" width="100%" height="100%" aria-hidden="true"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .3 0 0 0 0 .3 0 0 0 0 .3 0 0 0 .35 0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="znak" viewBox="0 0 1000 1000"><path d="M140 520A360 360 0 0 1 391.8 176.7L415.2 317.0A220 220 0 0 0 280 520Z M608.2 176.7A360 360 0 0 1 860 520L720 520A220 220 0 0 0 584.8 317.0Z M140 520H280V920H140Z M720 520H860V920H720Z M100 490H320V550H100Z M680 490H900V550H680Z M400 120H600L560 320H440Z"/></symbol></defs></svg>
+<header>
+ <div class="wrap">
+  <a class="brand" href="../"><svg aria-hidden="true"><use href="#znak"/></svg><span class="t">мастерская<b>Свод</b></span></a>
+  <nav><a href="../#poruchit">Что можно поручить</a><a href="../#rabotaet">Что уже работает</a><a class="btn" href="https://t.me/AlenaPrasol">Написать</a></nav>
+ </div>
+</header>
+<main>
+<div class="hero">
+ <div class="okno" aria-hidden="true"><svg viewBox="0 0 400 760" aria-hidden="true"><defs>
+  <linearGradient id="okno-g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFF8E4" stop-opacity=".9"/><stop offset="1" stop-color="#FFF8E4" stop-opacity=".45"/></linearGradient>
+  <mask id="okno-m"><path d="M0 200A200 200 0 0 1 400 200V760H0Z" fill="#fff"/><rect x="186" y="0" width="28" height="760"/><rect x="0" y="270" width="400" height="26"/></mask></defs>
+  <rect width="400" height="760" fill="url(#okno-g)" mask="url(#okno-m)"/></svg></div>
+ <div class="wrap">
+  <div>
+   <div class="card-note">визитка для приходов</div>
+   <h1>Алёна Прасолова<small>мастерская Свод · сайты, записки, расписание и своё лицо для приходов</small></h1>
+   <p>Настраиваю за неделю, объясняю настоятелю по телефону, остаюсь рядом после запуска. Деньги за записки и сборы идут напрямую в приход — без комиссии и посредников.</p>
+   <div class="cta"><a class="btn fill" href="https://t.me/AlenaPrasol">Написать в Telegram</a><a class="link" href="../#poruchit">Что можно поручить и сколько это стоит</a></div>
+  </div>
+  <div class="stage"><svg id="stage" viewBox="0 0 440 320" role="img" aria-label="Дрозд садится на ветку"></svg></div>
+ </div>
+</div>
+
+<section id="rabotaet">
+ <div class="wrap">
+  <h2>Что уже работает</h2>
+  <p class="lead">Не примеры из портфолио, а живые страницы, которыми приходы пользуются каждый день.</p>
+  <div class="works"><a class="sheet" href="https://hram-elhovka.ru" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Храм в Елховке</h3><div class="u">hram-elhovka.ru</div><p>Сайт, сбор пожертвований на храм, тетрадь «Библия за год» для группы о. Димитрия.</p><div class="st"><span>лист 01</span><span>сайт</span><span class="r">работает</span></div></a><a class="sheet" href="https://khram-aikhal.github.io" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Онлайн-записки, Айхал</h3><div class="u">khram-aikhal.github.io</div><p>Записки о здравии и упокоении с оплатой по СБП прямо на счёт прихода.</p><div class="st"><span>лист 02</span><span>записки</span><span class="r">работает</span></div></a><a class="sheet" href="https://hram-elhovka.ru/tetrad/" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Тетрадь «Библия за год»</h3><div class="u">hram-elhovka.ru/tetrad</div><p>Конспекты сорока уроков, расписание, домашнее — для всех, кто пропустил встречу.</p><div class="st"><span>лист 03</span><span>тетрадь</span><span class="r">работает</span></div></a><a class="sheet" href="https://svetopis.art" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Светопись</h3><div class="u">svetopis.art</div><p>Платформа церковных фотографов: съёмка треб и праздников.</p><div class="st"><span>лист 04</span><span>сервис</span><span class="r">работает</span></div></a><a class="sheet" href="https://pravoslav.store" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>pravoslav.store</h3><div class="u">pravoslav.store</div><p>Магазин открыток к праздникам с защитой файлов.</p><div class="st"><span>лист 05</span><span>магазин</span><span class="r">работает</span></div></a></div>
+ </div>
+</section>
+
+<section id="delo">
+ <div class="wrap">
+  <h2>Как идёт дело</h2>
+  <div class="how">
+   <div><b>Разговор</b><p>Что нужно приходу и чем сейчас неудобно. Полчаса по телефону, без анкет.</p></div>
+   <div><b>Показ</b><p>Показываю, как это будет выглядеть, и называю цену заранее. Берусь только после вашего «да».</p></div>
+   <div><b>Запуск и рядом</b><p>Готовое отдаю с памяткой человеческим языком. Поправить, дописать, объяснить — остаюсь на связи.</p></div>
+  </div>
+  <p class="more">Цены и полный список работ — на <a href="../">странице мастерской</a>. Если приходу сейчас не по средствам — скажите прямо, что-нибудь придумаем.</p>
+ </div>
+</section>
+
+<section id="svyaz">
+ <div class="wrap">
+  <h2>Написать</h2>
+  <div class="contact">
+   <p class="lead">Напишите в двух словах, какой у вас приход и что хотелось бы устроить. Отвечу и скажу, берусь или нет.</p>
+   <div class="ways">
+    <a href="https://t.me/AlenaPrasol"><span>Telegram</span><small>@AlenaPrasol</small></a>
+    <a href="mailto:joyka08@mail.ru"><span>Почта</span><small>joyka08@mail.ru</small></a>
+    <a href="https://t.me/masterskaya_svod"><span>Канал мастерской</span><small>t.me/masterskaya_svod</small></a>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+<footer>
+ <div class="wrap">
+  <div><a class="brand" href="../"><svg aria-hidden="true"><use href="#znak"/></svg><span class="t">мастерская<b>Свод</b></span></a></div>
+  <div><p class="quote">«Не зло победит зло, а только любовь».<small>Ольга Николаевна, 1918</small></p></div>
+ </div>
+</footer>
+<script src="vizitka.js"></script>
+</body>
+</html>
