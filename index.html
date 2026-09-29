@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Мастерская Свод — сайты, записки, боты и оформление для приходов</title>
+<meta name="description" content="Приходу из одних рук: онлайн-записки, расписание, сайт, канал, сборы и стиль. Деньги напрямую в приход, без комиссии. Мастерская Свод.">
+<link rel="icon" href="assets/svod-znak.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=PT+Sans:wght@400;700&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Old+Standard+TT&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<svg class="grain" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".95" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .25 0 0 0 0 .25 0 0 0 0 .25 0 0 0 .5 0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
+
+<header>
+ <div class="wrap">
+  <a class="brand" href="#top" aria-label="Мастерская Свод — на главную">
+   <svg viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg>
+   <span class="t">мастерская<b>Свод</b></span>
+  </a>
+  <nav aria-label="Разделы">
+   <a href="#poruchit">Что можно поручить</a>
+   <a href="#rabotaet">Что уже работает</a>
+   <a href="#delo">Как идёт дело</a>
+   <a href="#kto">Кто за этим стоит</a>
+   <a class="btn" href="#svyaz">Написать</a>
+  </nav>
+ </div>
+</header>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="znak" viewBox="0 0 1000 1000"><path d="M140 520A360 360 0 0 1 391.8 176.7L415.2 317.0A220 220 0 0 0 280 520Z M608.2 176.7A360 360 0 0 1 860 520L720 520A220 220 0 0 0 584.8 317.0Z M140 520H280V920H140Z M720 520H860V920H720Z M100 490H320V550H100Z M680 490H900V550H680Z M400 120H600L560 320H440Z"/></symbol></defs></svg>
+
+<main id="top">
+<div class="hero">
+ <div class="light" aria-hidden="true"></div>
+ <div class="leaves" aria-hidden="true"><svg viewBox="0 0 700 520" fill="#3C3C3E" aria-hidden="true">
+<path d="M690 20c-90 60-150 130-200 220-40 70-90 130-160 180" fill="none" stroke="#3C3C3E" stroke-width="5" stroke-linecap="round"/>
+<path d="M540 160c-40-30-50-70-30-110 30 20 45 60 30 110z"/><path d="M560 150c30-40 70-55 110-45-20 35-60 50-110 45z"/>
+<path d="M470 260c-45-15-70-50-65-95 35 15 60 50 65 95z"/><path d="M490 250c20-45 60-70 105-70-15 40-55 65-105 70z"/>
+<path d="M400 360c-45-5-80-35-85-80 40 5 70 35 85 80z"/><path d="M420 350c10-45 45-78 90-85-8 42-42 75-90 85z"/>
+<path d="M340 420c-40 5-75-15-95-55 40-5 75 15 95 55z"/><path d="M360 415c0-40 25-75 65-90 0 40-25 75-65 90z"/>
+<circle cx="600" cy="90" r="11"/><circle cx="622" cy="104" r="9"/><circle cx="596" cy="116" r="8"/>
+<circle cx="500" cy="300" r="10"/><circle cx="520" cy="314" r="8"/>
+<circle cx="360" cy="470" r="9"/><circle cx="380" cy="482" r="7"/>
+</svg></div>
+ <div class="wrap">
+  <div>
+   <div class="desc">мастерская</div>
+   <div class="wm"><svg width="100%" viewBox="0 0 416 100" style="max-width:560px" fill="none" stroke="#3C3C3E" stroke-width="14" stroke-linejoin="round" aria-label="Свод"><path d="M80.4 19.6A43 43 0 1 0 80.4 80.4"/><path d="M7 7V93M7 7H40A20 20 0 0 1 40 47H7M7 47H46A23 23 0 0 1 46 93H7" transform="translate(108 0)"/><path d="M50 7A43 43 0 1 1 50 93A43 43 0 1 1 50 7" transform="translate(206 0)"/><path d="M7 93V78H83V93M18 78L26 7H64L72 78" transform="translate(326 0)"/></svg></div>
+   <h1>Записки, расписание, сайт и своё лицо — приходу из одних рук.</h1>
+   <p>Настрою за неделю, объясню настоятелю по телефону, останусь рядом после запуска. Деньги за записки и сборы идут напрямую в приход — без комиссии и посредников.</p>
+   <div class="cta"><a class="btn fill" href="#svyaz">Поручить дело</a><a class="link" href="#rabotaet">Посмотреть, что уже работает</a></div>
+  </div>
+  <div class="draw"><svg id="svod" viewBox="-70 -10 800 560" role="img" aria-label="Свод из шести работ: записки, расписание, сайт, канал, сборы, стиль; замковый камень — приход"></svg></div>
+ </div>
+</div>
+<script type="application/json" id="svod-data">[{"id": "zapiski", "label": "Записки"}, {"id": "raspisanie", "label": "Расписание"}, {"id": "sayt", "label": "Сайт|прихода"}, {"id": "kanal", "label": "Канал|прихода"}, {"id": "sbory", "label": "Сборы"}, {"id": "stil", "label": "Стиль"}]</script>
+
+<section id="poruchit">
+ <div class="wrap">
+  <h2>Что можно поручить</h2>
+  <p class="lead">Каждая позиция — отдельная работа с понятной ценой. Можно взять одну, можно всё сразу.</p>
+  <table class="spec"><tr data-id="zapiski"><td class="n">01</td><td class="nm">Записки</td><td class="w">Бот в Telegram и MAX и страница записок: о здравии, о упокоении, сорокоусты. Деньги идут на счёт прихода — по СБП или через кассу прихода. Записки приходят в чат настоятеля и собираются в PDF на печать к службе.</td><td class="pr">4 900 ₽ · 490 ₽ в месяц</td></tr><tr data-id="raspisanie"><td class="n">02</td><td class="nm">Расписание</td><td class="w">Расписание богослужений в боте и на странице, само выходит в каналы прихода. Праздники выделены, картинка для чата — автоматически.</td><td class="pr">2 900 ₽ · 290 ₽ в месяц</td></tr><tr data-id="sayt"><td class="n">03</td><td class="nm">Сайт прихода</td><td class="w">История, святыни, расписание, требы, пожертвования, новости, как добраться. Свой домен, карточки на Яндекс.Картах и 2ГИС. Приход получает исходники — ничего не привязано ко мне.</td><td class="pr">от 9 900 ₽ · 3 900 ₽ в год</td></tr><tr data-id="kanal"><td class="n">04</td><td class="nm">Канал прихода</td><td class="w">Оформление Telegram, MAX и ВК: аватар, обложки, шаблоны. Три-четыре рубрики, которые выходят сами по расписанию, и план на месяц.</td><td class="pr">4 900 ₽ · 490 ₽ в месяц</td></tr><tr data-id="sbory"><td class="n">05</td><td class="nm">Сборы</td><td class="w">Страница целевого сбора — на купол, на ремонт, на вертеп. QR прихода, счётчик «собрано», отчёт жертвователям.</td><td class="pr">2 900 ₽</td></tr><tr data-id="stil"><td class="n">06</td><td class="nm">Стиль прихода</td><td class="w">Знак прихода с проверкой по канону и закону, бланки записок, стенд в притворе, шаблоны для соцсетей. Показываю «было → стало».</td><td class="pr">от 9 900 ₽</td></tr><tr data-id="prezentaciya"><td class="n">07</td><td class="nm">Презентация прихода</td><td class="w">12–16 полос для благотворителей, грантов, главы поселения. Файл на печать и версия для экрана.</td><td class="pr">7 900 ₽</td></tr><tr data-id="paket"><td class="n">08</td><td class="nm">Приход под ключ</td><td class="w">Записки, расписание, канал и сборы — всё, что нужно сельскому приходу, у которого нет сайта и некому этим заниматься.</td><td class="pr">11 900 ₽ · 990 ₽ в месяц</td></tr></table>
+ </div>
+</section>
+
+<section id="rabotaet" class="dark">
+ <div class="wrap">
+  <h2>Что уже работает</h2>
+  <p class="lead">Живые сайты и сервисы, которыми приходы пользуются каждый день. Открой любой.</p>
+  <div class="works"><a class="sheet" href="https://hram-elhovka.ru" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Храм в Елховке</h3><div class="u">hram-elhovka.ru</div><p>Сайт, сбор пожертвований на храм, тетрадь «Библия за год» для группы о. Димитрия.</p><div class="st"><span>лист 01</span><span>сайт</span><span class="r">работает</span></div></a><a class="sheet" href="https://khram-aikhal.github.io" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Онлайн-записки, Айхал</h3><div class="u">khram-aikhal.github.io</div><p>Записки о здравии и упокоении с оплатой по СБП прямо на счёт прихода.</p><div class="st"><span>лист 02</span><span>записки</span><span class="r">работает</span></div></a><a class="sheet" href="https://hram-elhovka.ru/tetrad/" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Тетрадь «Библия за год»</h3><div class="u">hram-elhovka.ru/tetrad</div><p>Конспекты сорока уроков, расписание, домашнее — для всех, кто пропустил встречу.</p><div class="st"><span>лист 03</span><span>тетрадь</span><span class="r">работает</span></div></a><a class="sheet" href="https://svetopis.art" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Светопись</h3><div class="u">svetopis.art</div><p>Платформа церковных фотографов: съёмка треб и праздников.</p><div class="st"><span>лист 04</span><span>сервис</span><span class="r">работает</span></div></a><a class="sheet" href="https://pravoslav.store" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>pravoslav.store</h3><div class="u">pravoslav.store</div><p>Магазин открыток к праздникам с защитой файлов.</p><div class="st"><span>лист 05</span><span>магазин</span><span class="r">работает</span></div></a>
+   <div class="sheet empty"><h3>Ваш приход</h3><p>Следующий лист. Напишите — обсудим, с чего начать.</p></div>
+  </div>
+ </div>
+</section>
+
+<section id="delo">
+ <div class="wrap">
+  <h2>Как идёт дело</h2>
+  <p class="lead">Три шага, без договоров на двадцать страниц.</p>
+  <div class="steps">
+   <div class="step"><div class="c">1</div><h3>Разговор</h3><p>Полчаса по телефону: что нужно приходу и что уже есть. Бесплатно.</p></div>
+   <div class="step"><div class="c">2</div><h3>Настройка</h3><p>Неделя. Показываю по ходу, правлю сразу, ничего не прячу.</p></div>
+   <div class="step"><div class="c">3</div><h3>Рядом</h3><p>После запуска остаюсь на связи. Сопровождение — от 290 ₽ в месяц.</p></div>
+  </div>
+  <div class="price"><b>Записки — 4 900 ₽ и 490 ₽ в месяц. Приход под ключ — 11 900 ₽ и 990 ₽ в месяц.</b><span>Без комиссии с пожертвований. Если приходу совсем тяжело — договоримся.</span></div>
+ </div>
+</section>
+
+<section id="kto">
+ <div class="wrap">
+  <h2>Кто за этим стоит</h2>
+  <div class="about">
+   <div class="port" aria-hidden="true"><svg viewBox="0 0 1000 1000"><use href="#znak"/></svg></div>
+   <div>
+    <p>Меня зовут Алёна Прасолова. Я фотограф и мастер по цифровым делам для храмов: делаю сайты, онлайн-записки, ботов и оформление приходских каналов.</p>
+    <p>Начала со своего прихода — потом попросили соседи. Сейчас работают пять сайтов и сервисов, которыми приходы пользуются каждый день, и рубрики, которые выходят сами по расписанию в трёх каналах.</p>
+    <p>Рисунки на листах — с камня Фёдоровского городка в Царском Селе.</p>
+    <p>Я не студия и не конструктор. Всё делаю сама, от разговора с настоятелем до последней запятой, и остаюсь на связи после запуска. Работа платная — мне тоже нужно на что-то жить, — но посильная для сельского прихода.</p>
+   </div>
+  </div>
+ </div>
+</section>
+
+<section id="voprosy">
+ <div class="wrap">
+  <h2>Батюшки спрашивают</h2>
+  <div class="faq"><details><summary>Куда приходят деньги за записки?</summary><p>На счёт прихода, напрямую. Я не посредник и не беру процент с пожертвований — по закону самозанятая и не может. Настраиваю оплату по СБП или через кассу прихода так, чтобы деньги шли храму, а список имён — батюшке в чат. Всё с благословения настоятеля.</p></details><details><summary>У нас уже есть группа в ВК. Зачем ещё что-то?</summary><p>Группа — это лента, она уходит вниз. Записки, расписание и сборы должны быть на одном постоянном месте, которое находит поиск и на которое можно повесить QR в притворе. Группу я не отменяю, а связываю: записи выходят в ВК, Telegram и MAX сами.</p></details><details><summary>Сколько это стоит на самом деле?</summary><p>Каждая работа — с ценой на этой странице, без «оставьте телефон, посчитаем». Настройка один раз, дальше небольшая плата в месяц за то, что всё работает и я на связи. Если приходу совсем тяжело — договоримся.</p></details><details><summary>А если я ничего в этом не понимаю?</summary><p>Это моя работа, а не ваша. От вас — полчаса разговора по телефону, расписание служб и реквизиты прихода. Остальное покажу и объясню так, чтобы было понятно с первого раза.</p></details><details><summary>Что с персональными данными прихожан?</summary><p>Оператор данных — приход, а не я. Бот и страницы живут на российском сервере, записки уходят в чат прихода, у себя я ничего не накапливаю. Паспортных данных не собираю, имена в записках — крестильные, без фамилий. Согласие и политика — на форме.</p></details><details><summary>Что будет, если вы пропадёте?</summary><p>Всё остаётся у прихода: сайт, домен, доступы, исходники. Ничего не привязано ко мне так, чтобы без меня перестало работать.</p></details></div>
+ </div>
+</section>
+
+<section id="svyaz">
+ <div class="wrap">
+  <h2>Написать</h2>
+  <div class="contact">
+   <p class="lead" style="margin:0">Напишите, где вам удобнее. Отвечаю в тот же день. Первый разговор — бесплатно, без обязательств.</p>
+   <div class="ways">
+    <a href="https://t.me/AlenaPrasol" target="_blank" rel="noopener">Написать в Telegram <small>@AlenaPrasol</small></a>
+    <a href="mailto:joyka08@mail.ru">Почта <small>joyka08@mail.ru</small></a>
+    <a href="https://t.me/masterskaya_svod" target="_blank" rel="noopener">Канал в Telegram <small>@masterskaya_svod</small></a>
+    <a href="https://vk.com/svod_prihodam" target="_blank" rel="noopener">Сообщество ВК <small>vk.com/svod_prihodam</small></a>
+    <a href="https://max.ru/channel_tihaya_masterskaya" target="_blank" rel="noopener">Канал в MAX <small>max.ru/channel_tihaya_masterskaya</small></a>
+   </div>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="wrap">
+  <a class="brand" href="#top"><svg viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><span class="t">мастерская<b>Свод</b></span></a>
+  <div class="cols"><p class="quote">«Не зло победит зло, а только любовь».<small>Ольга Николаевна, 1918</small></p>
+  <div>masterskaya-svod.ru<br>Алёна Прасолова, самозанятая<br>сайты, записки, боты и оформление для приходов</div></div>
+ </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

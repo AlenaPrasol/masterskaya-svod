@@ -1,0 +1,172 @@
+:root{--soot:#201E1C;--paper:#E4E3DE;--paper2:#D8D7D2;--paper3:#CFCEC8;--ink:#3C3C3E;--ink2:#2A2A2C;--soft:#6A6A6C;--line:#B9B8B3;--red:#B4452C;--w:1200px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;position:relative;background:var(--paper);color:var(--ink);font-family:"PT Serif",Georgia,"Times New Roman",serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+.grain{position:fixed;inset:0;pointer-events:none;opacity:.22;mix-blend-mode:multiply;z-index:50}
+.wrap{max-width:var(--w);margin:0 auto;padding:0 40px}
+.sans{font-family:"PT Sans",Arial,sans-serif}
+/* шапка */
+header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(6px);border-bottom:1px solid transparent;transition:border-color .3s}
+header.on{border-color:var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:78px}
+.brand{display:flex;align-items:center;gap:14px;text-decoration:none}
+.brand svg{width:38px;height:38px;display:block;fill:var(--ink)}
+.brand .t{font:400 11px/1.25 "PT Sans",Arial,sans-serif;letter-spacing:.22em;text-transform:uppercase}
+.brand .t b{display:block;font:400 17px/1.2 "PT Serif";letter-spacing:0;text-transform:none}
+nav{display:flex;gap:30px;align-items:center;font:400 16px "PT Sans",Arial,sans-serif}
+nav a{text-decoration:none;opacity:.9}
+nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
+.btn{display:inline-block;border:1.5px solid var(--ink);color:var(--ink);padding:12px 26px;font:400 16px "PT Sans",Arial,sans-serif;text-decoration:none;border-radius:2px;background:transparent;cursor:pointer;transition:background .2s,color .2s}
+.btn:hover{background:var(--ink);color:var(--paper)}
+.btn.fill{background:var(--ink);color:var(--paper)}
+.btn.fill:hover{background:var(--ink2)}
+.btn.red{border-color:var(--red);color:var(--red)}
+.btn.red:hover{background:var(--red);color:var(--paper)}
+:focus-visible{outline:2px solid var(--red);outline-offset:3px}
+/* первый экран */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1.1fr;gap:50px;align-items:center;padding:56px 40px 80px;min-height:calc(100vh - 78px)}
+.hero .desc{font:400 14px "PT Sans",Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase;margin-bottom:18px}
+.hero .wm svg{display:block;width:100%;max-width:560px;height:auto}
+.hero h1{font:400 30px/1.35 "PT Serif";margin:36px 0 16px;max-width:520px}
+.hero p{max-width:470px;color:var(--soft);margin:0 0 34px}
+.hero .cta{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.hero .cta a.link{font:400 16px "PT Sans",Arial,sans-serif;text-decoration:underline;text-underline-offset:5px}
+/* свет из окна и тени лозы */
+.light{position:absolute;left:-10%;top:-20%;width:70%;height:140%;pointer-events:none;z-index:0;opacity:.9;
+  background:radial-gradient(ellipse 34% 60% at 50% 50%,rgba(255,252,240,.65),rgba(255,252,240,0) 70%);
+  filter:blur(28px);animation:drift 46s ease-in-out infinite alternate}
+.leaves{position:absolute;right:-2%;top:-4%;width:40%;height:62%;pointer-events:none;z-index:0;opacity:.11;filter:blur(2.5px);transform-origin:100% 0;animation:sway 9s ease-in-out infinite alternate}
+.leaves svg{width:100%;height:100%}
+@keyframes drift{from{transform:translate(0,0) rotate(-2deg)}to{transform:translate(18%,10%) rotate(3deg)}}
+@keyframes sway{from{transform:rotate(-1.2deg) translateX(0)}to{transform:rotate(1.4deg) translateX(-12px)}}
+.hero .wrap>*{position:relative;z-index:1}
+/* свод из камней */
+.draw{position:relative}
+.draw svg{width:100%;height:auto;display:block;overflow:visible}
+.stone{fill:var(--paper2);stroke:var(--ink);stroke-width:2;cursor:pointer;transition:fill .2s}
+.stone:hover,.stone.on{fill:var(--paper3)}
+.stone.key{fill:var(--ink);cursor:default}
+.lbl{font-family:"PT Serif";font-size:17px;fill:var(--ink);transition:fill .2s,font-weight .2s}
+.lbl.on{fill:var(--red)}
+.leader{stroke:var(--ink);stroke-width:1}
+.hand{font-family:"PT Serif";font-style:italic;font-size:17px;fill:var(--red)}
+.dim{font-family:"PT Sans",Arial,sans-serif;font-size:13px;fill:var(--red)}
+/* сборка */
+.anim .stone,.anim .pier,.anim .imp{opacity:0;transform:translateY(-18px);animation:drop .55s cubic-bezier(.2,.7,.2,1) forwards}
+.anim .lbl,.anim .leader,.anim .hand,.anim .dimline,.anim .dim{opacity:0;animation:fade .6s ease forwards;animation-delay:2.6s}
+.anim .ground{stroke-dasharray:900;stroke-dashoffset:900;animation:draw 1s ease forwards}
+@keyframes drop{to{opacity:1;transform:translateY(0)}}
+@keyframes fade{to{opacity:1}}
+@keyframes draw{to{stroke-dashoffset:0}}
+.bird{opacity:0;transform-origin:center;fill:var(--ink)}
+.anim .bird{animation:fly 1.6s cubic-bezier(.3,.6,.3,1) forwards;animation-delay:2.4s}
+@keyframes fly{0%{opacity:0;transform:translate(420px,-260px) rotate(-10deg) scale(.9)}60%{opacity:1;transform:translate(40px,-36px) rotate(-4deg)}85%{transform:translate(-3px,4px) rotate(1deg)}100%{opacity:1;transform:translate(0,0) rotate(0)}}
+.bird.landed{animation:none;opacity:1}
+.bird.peck{animation:peck .5s ease}
+@keyframes peck{0%,100%{transform:rotate(0)}40%{transform:rotate(6deg) translateY(3px)}}
+@media (prefers-reduced-motion:reduce){
+  .light,.leaves{animation:none}
+  .anim .stone,.anim .pier,.anim .imp,.anim .lbl,.anim .leader,.anim .hand,.anim .dimline,.anim .dim,.anim .bird{animation:none;opacity:1;transform:none}
+  .anim .ground{animation:none;stroke-dashoffset:0}
+}
+/* разделы */
+section{padding:88px 0;border-top:1px solid var(--line)}
+h2{font:400 40px/1.2 "PT Serif";margin:0 0 14px}
+.lead{color:var(--soft);max-width:600px;margin:0 0 44px}
+.spec{width:100%;border-collapse:collapse}
+.spec tr{transition:background .2s}
+.spec tr.on{background:var(--paper2)}
+.spec td{padding:22px 0;border-top:1px solid var(--line);vertical-align:top}
+.spec tr:last-child td{border-bottom:1px solid var(--line)}
+.spec .n{width:64px;font:400 15px "PT Sans",Arial,sans-serif;color:var(--red);padding-top:28px}
+.spec .nm{width:32%;font-size:22px;line-height:1.35;padding-right:30px}
+.spec .w{color:var(--soft);padding-right:40px;font-size:17px}
+.spec .pr{width:180px;text-align:right;font:400 16px "PT Sans",Arial,sans-serif;white-space:nowrap;padding-top:28px}
+.works{display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
+.sheet{background:var(--paper2);border:1px solid var(--line);padding:26px 26px 20px;position:relative;min-height:236px;display:flex;flex-direction:column;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s}
+a.sheet:hover{transform:translateY(-2px);box-shadow:0 8px 24px -14px rgba(60,60,62,.5)}
+.sheet.empty{background:transparent;border:1.5px dashed var(--line);justify-content:center}
+.sheet h3{font:400 23px/1.25 "PT Serif";margin:0 0 8px;padding-right:44px}
+.sheet .u{font:400 14px "PT Sans",Arial,sans-serif;color:var(--soft);margin-bottom:10px}
+.sheet p{color:var(--soft);margin:0 0 auto;font-size:16px}
+.sheet .st{margin-top:22px;display:flex;font:400 11px "PT Sans",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;border:1px solid var(--ink);align-self:flex-start}
+.sheet .st span{padding:6px 10px;border-right:1px solid var(--ink)}
+.sheet .st span:last-child{border-right:0}
+.sheet .st .r{color:var(--red)}
+.sheet .corner{position:absolute;right:18px;top:18px;width:30px;height:30px;fill:var(--ink)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.step .c{width:44px;height:44px;border:2px solid var(--red);border-radius:50%;display:flex;align-items:center;justify-content:center;font:400 20px "PT Sans",Arial,sans-serif;color:var(--red);margin-bottom:18px}
+.step h3{font:400 22px "PT Serif";margin:0 0 8px}
+.step p{color:var(--soft);margin:0;font-size:17px}
+.price{margin-top:50px;padding:26px 30px;border:1px solid var(--line);background:var(--paper2);display:flex;gap:30px;align-items:center;flex-wrap:wrap}
+.price b{font-weight:400;font-size:23px}
+.price span{color:var(--soft);font-size:16px}
+.about{display:grid;grid-template-columns:1fr 1.4fr;gap:60px;align-items:start}
+.about .port{aspect-ratio:1/1;max-width:380px;background:var(--paper2);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.about .port svg{width:60%;height:60%;fill:var(--ink);opacity:.9}
+.about p{margin:0 0 16px}
+.faq details{border-top:1px solid var(--line);padding:18px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-size:21px;list-style:none;display:flex;justify-content:space-between;gap:20px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";color:var(--red);font-family:"PT Sans";font-size:26px;line-height:1}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--soft);margin:12px 0 0;max-width:720px}
+.contact{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:start}
+.contact .ways{display:flex;flex-direction:column;gap:14px}
+.contact .ways a{display:flex;justify-content:space-between;align-items:center;border:1px solid var(--line);padding:16px 20px;text-decoration:none;font:400 17px "PT Sans",Arial,sans-serif;transition:border-color .2s,background .2s}
+.contact .ways a:hover{border-color:var(--ink);background:var(--paper2)}
+.contact .ways a small{color:var(--soft);font-size:14px}
+footer{border-top:1px solid var(--ink);padding:40px 0 56px}
+footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;font:400 15px/1.7 "PT Sans",Arial,sans-serif;color:var(--soft);gap:30px;flex-wrap:wrap}
+.ornament{height:34px;margin:0 auto;display:block;opacity:.9}
+@media (max-width:760px){
+ .wrap{padding:0 20px}
+ header .wrap{height:64px} nav a:not(.btn){display:none} nav{gap:0}
+ .btn{padding:10px 18px;font-size:15px}
+ .hero .wrap{grid-template-columns:1fr;gap:26px;padding:26px 20px 44px;min-height:0}
+ .hero h1{font-size:23px;margin-top:22px}
+ .hero p{font-size:16px}
+ .hero .cta{flex-direction:column;align-items:flex-start;gap:16px}
+ .leaves{width:80%;opacity:.1}
+ .works,.steps,.about,.contact{grid-template-columns:1fr}
+ .about .port{max-width:320px}
+ .spec .w{display:none}
+ .spec .nm{width:auto;font-size:19px}
+ .spec .pr{width:auto;font-size:15px}
+ h2{font-size:30px}
+ section{padding:56px 0}
+ .faq summary{font-size:18px}
+}
+
+/* сажа: тёмные листы */
+.num{font-family:"Old Standard TT","PT Serif",serif}
+.hero .wm svg{stroke:var(--soot)}
+.stone.key{fill:var(--soot)}
+.bird{fill:var(--soot)}
+.vine{fill:var(--soot)} .vine .berry{fill:var(--red)}
+.anim .vine{opacity:0;animation:fade .8s ease forwards;animation-delay:2.2s}
+section.dark{background:var(--soot);color:var(--paper);border-top:0}
+section.dark .lead{color:#B9B8B3}
+section.dark .sheet{border-color:rgba(226,225,220,.45);color:var(--paper);background:transparent}
+section.dark .sheet p,section.dark .sheet .u{color:#B9B8B3}
+section.dark .sheet .st{border-color:var(--paper)} section.dark .sheet .st span{border-color:var(--paper)}
+section.dark .sheet .st .r{color:#D9654A}
+section.dark .sheet .corner{fill:var(--paper)}
+section.dark a.sheet:hover{background:rgba(226,225,220,.06);box-shadow:none}
+section.dark .sheet.empty{border-color:rgba(226,225,220,.35)}
+.sheet{background:transparent}
+footer{background:var(--soot);color:#B9B8B3;border-top:0;padding:56px 0 64px}
+footer .brand svg{fill:var(--paper)} footer .brand .t{color:var(--paper)}
+footer .quote{font:italic 20px/1.5 "PT Serif";color:var(--paper);max-width:520px;margin:0 0 6px}
+footer .quote small{display:block;font:400 14px "Old Standard TT","PT Serif",serif;font-style:normal;color:#B9B8B3;letter-spacing:.04em;margin-top:6px}
+footer .wrap{align-items:flex-start}
+footer .cols{display:flex;gap:60px;flex-wrap:wrap}
+.spec .n{font-family:"Old Standard TT","PT Serif",serif;font-size:22px;padding-top:24px}
+.sheet .st span:first-child{font-family:"Old Standard TT","PT Serif",serif;letter-spacing:.06em;font-size:13px;text-transform:none}
+.step .c{font-family:"Old Standard TT","PT Serif",serif;font-size:22px}
+
+.keylbl{fill:var(--paper)!important}
+.hero .draw{padding-bottom:10px}
