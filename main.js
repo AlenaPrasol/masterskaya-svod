@@ -7,10 +7,11 @@
   const cx=330, cy=330, r1=170, r2=248, n=7, step=Math.PI/n;
   const P=(r,a)=>[cx+r*Math.cos(a), cy-r*Math.sin(a)];
   const f=v=>v.toFixed(1);
-  let out='', delay=0.15;
+  let out='', delay=0.05;
   // силуэты птицы: сидит (как на обложке) и летит (тело + два крыла, машут масштабом по оси Y от плеча)
   out+=`<defs>
     <filter id="blur3" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3.5"/></filter>
+    <filter id="blur6" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
     <g id="b-sit"><path d="M8 46L28 40C34 28 48 22 62 26C90 30 120 44 150 56L198 64L196 78L150 78C140 96 110 106 80 100C58 96 40 84 30 66L22 60Z"/>
       <circle cx="40" cy="40" r="3.6" fill="${PAPER}"/><path d="M80 100l-3 18M96 101l2 18" stroke="${SOOT}" stroke-width="3.5" stroke-linecap="round" fill="none"/></g>
     <path id="b-body" d="M2 56L20 50C28 40 40 35 54 37C86 40 118 46 150 52L206 42L198 60L208 80L150 76C122 86 92 88 66 84C46 80 32 72 22 62Z"/>
@@ -21,13 +22,15 @@
   out+=`<path class="ground" d="M${cx-r2-40} ${cy+126}H${cx+r2+40}" stroke="${INK}" stroke-width="2" fill="none"/>`;
   let h='';for(let x=cx-r2-40;x<cx+r2+40;x+=16)h+=`M${x} ${cy+126}l-10 14`;
   out+=`<path class="ground" d="${h}" stroke="${INK}" stroke-width="1" fill="none"/>`;
+  const G=cy+126;
+  out+=`<path class="shade" filter="url(#blur6)" d="M${cx-r2} ${G}V${cy}A${r2} ${r2} 0 0 1 ${cx+r2} ${cy}V${G}H${cx+r1}V${cy}A${r1} ${r1} 0 0 0 ${cx-r1} ${cy}V${G}Z"/>`;
   out+=`<rect class="pier" style="animation-delay:${delay}s" x="${cx-r2}" y="${cy+6}" width="${r2-r1}" height="120" fill="#D8D7D2" stroke="${INK}" stroke-width="2"/>`;
-  out+=`<rect class="pier" style="animation-delay:${delay+0.1}s" x="${cx+r1}" y="${cy+6}" width="${r2-r1}" height="120" fill="#D8D7D2" stroke="${INK}" stroke-width="2"/>`;
-  out+=`<rect class="imp" style="animation-delay:${delay+0.35}s" x="${cx-r2-8}" y="${cy-6}" width="${r2-r1+16}" height="12" fill="${INK}"/>`;
-  out+=`<rect class="imp" style="animation-delay:${delay+0.45}s" x="${cx+r1-8}" y="${cy-6}" width="${r2-r1+16}" height="12" fill="${INK}"/>`;
+  out+=`<rect class="pier" style="animation-delay:${delay+0.08}s" x="${cx+r1}" y="${cy+6}" width="${r2-r1}" height="120" fill="#D8D7D2" stroke="${INK}" stroke-width="2"/>`;
+  out+=`<rect class="imp" style="animation-delay:${delay+0.22}s" x="${cx-r2-8}" y="${cy-6}" width="${r2-r1+16}" height="12" fill="${INK}"/>`;
+  out+=`<rect class="imp" style="animation-delay:${delay+0.3}s" x="${cx+r1-8}" y="${cy-6}" width="${r2-r1+16}" height="12" fill="${INK}"/>`;
   // камни: снизу вверх попарно, замок последним
-  const order=[0,6,1,5,2,4,3]; let t=delay+0.6;
-  const pos={}; order.forEach((i,k)=>{pos[i]=t; t+= (i===3?0.35:0.22);});
+  const order=[0,6,1,5,2,4,3]; let t=delay+0.4;
+  const pos={}; order.forEach((i,k)=>{pos[i]=t; t+= (i===3?0.2:0.13);});
   const items=SERVICES.filter(s=>s.id!=='key'); // 6 услуг
   const map={0:items[0],1:items[1],2:items[2],3:{id:'key',label:'Приход'},4:items[3],5:items[4],6:items[5]};
   let labels='';
@@ -50,8 +53,11 @@
     <path d="M-28-60c-26-2-46-16-56-40 18-2 36 6 48 20 8 8 10 14 8 20z"/><path d="M-30-120c6-26 24-42 48-46-4 22-18 40-38 48-6 2-10 0-10-2z"/>
     <g class="berry"><circle cx="-46" cy="-92" r="9"/><circle cx="-60" cy="-104" r="8"/><circle cx="-38" cy="-108" r="8"/><circle cx="-52" cy="-120" r="7"/><circle cx="-66" cy="-88" r="7"/></g>`;
   out+=`<g class="vine" transform="translate(${VX} ${VY})"><g id="vBend"><g id="vInner" transform="scale(0.46) rotate(-6)">${VINE}</g></g></g>`;
-  out+=`<g class="bird" id="bird"><g transform="translate(-104 -60)"><g id="bFly"><use href="#b-wingfar" transform="translate(98 46)"/><use href="#b-body"/><use href="#b-wing" transform="translate(90 50)"/><circle cx="36" cy="46" r="3.4" fill="${PAPER}"/></g><g id="bSit"><use href="#b-sit"/></g></g></g>`;
   svg.innerHTML=out;
+  // слой птицы: отдельный svg на всю страницу поверх шапки и текста, чтобы полёт нигде не резался
+  const layer=document.createElementNS('http://www.w3.org/2000/svg','svg'); layer.setAttribute('class','bird-layer'); layer.setAttribute('aria-hidden','true');
+  layer.innerHTML=`<g class="bird" id="bird"><g transform="translate(-104 -60)"><g id="bFly"><use href="#b-wingfar" transform="translate(98 46)"/><use href="#b-body"/><use href="#b-wing" transform="translate(90 50)"/><circle cx="36" cy="46" r="3.4" fill="${PAPER}"/></g><g id="bSit"><use href="#b-sit"/></g></g></g>`;
+  document.body.appendChild(layer);
 
   // ---- птица: движок полёта ----
   const bird=document.getElementById('bird'), bFly=document.getElementById('bFly'), bSit=document.getElementById('bSit');
@@ -62,7 +68,8 @@
   const KEY={x:cx,y:cy-r2};                            // верх замкового камня
   const pt=svg.createSVGPoint();
   function perchWorld(){ pt.x=PERCH_L.x; pt.y=PERCH_L.y; return pt.matrixTransform(svg.getScreenCTM().inverse().multiply(vInner.getScreenCTM())); }
-  function vineAngle(){ return bend.a; }
+  // координаты чертежа → координаты страницы (слой птицы лежит в пикселях страницы)
+  function toPage(x,y){ const m=svg.getScreenCTM(); return {x:m.a*x+m.c*y+m.e+scrollX, y:m.b*x+m.d*y+m.f+scrollY, k:m.a}; }
   const mkPath=d=>{const p=document.createElementNS('http://www.w3.org/2000/svg','path'); p.setAttribute('d',d); return p;};
   // траектории: прилёт с подъёмом над сводом, перелёт с замка на ветку, отлёт (по клику)
   const arrive=()=>mkPath(`M900 470C760 380 640 170 560 -10C520 -120 400 -240 260 -236C120 -232 50 -120 120 -50C180 8 320 -90 400 -70C470 -54 440 10 400 40C378 58 350 74 ${KEY.x} ${KEY.y}`);
@@ -78,7 +85,8 @@
     let a=st.ang, x=st.x, y=st.y, face=st.face;
     if(st.on==='vine'){ const p=perchWorld(); x=p.x+6*face; y=p.y-29; a=bend.a*.8+st.peck; }
     else if(st.on==='key'){ x=KEY.x+6*face; y=KEY.y-29; a=st.peck; }
-    bird.setAttribute('transform',`translate(${f(x)} ${f(y)}) rotate(${f(a)}) scale(${(face*0.5).toFixed(2)} 0.5)`);
+    const Pg=toPage(x,y);
+    bird.setAttribute('transform',`translate(${f(Pg.x)} ${f(Pg.y)}) rotate(${f(a)}) scale(${(face*0.5*Pg.k).toFixed(3)} ${(0.5*Pg.k).toFixed(3)})`);
     const sy=st.sy; wingN.setAttribute('transform',`translate(90 50) scale(1 ${sy.toFixed(3)})`); wingF.setAttribute('transform',`translate(98 46) rotate(8) scale(.9 ${(sy*.95).toFixed(3)})`);
     vBend.setAttribute('transform',`rotate(${f(bend.a)})`);
   }
@@ -121,10 +129,10 @@
   }
   const probe=location.hash==='#probe';   // проверка кадров: window.__svod.advance(сек) двигает время руками
   function begin(){
-    if(reduce){ svg.classList.add('anim'); st.face=1; land('vine'); bend.v=0; draw(); return; }
+    if(reduce){ svg.classList.add('anim'); st.face=1; land('vine'); bend.v=0; draw(); addEventListener('resize',draw); return; }
     svg.classList.add('anim'); bird.style.display='none';
     if(probe){ bird.style.display=''; start('arrive',arrive(),5.4); return; }
-    setTimeout(()=>{ bird.style.display=''; start('arrive',arrive(),5.4); }, 2300);
+    setTimeout(()=>{ bird.style.display=''; start('arrive',arrive(),5.4); }, 600);
     requestAnimationFrame(frame);
   }
   // птицу можно спугнуть: улетит и вернётся тем же путём
@@ -134,7 +142,7 @@
   // собираем свод, когда чертёж на экране (на телефоне он ниже текста)
   const draw_=svg.closest('.draw')||svg; let begun=false;
   if('IntersectionObserver' in window){
-    const io=new IntersectionObserver(es=>{ visible=es.some(e=>e.isIntersecting); if(!begun && visible){ begun=true; begin(); } },{threshold:.35});
+    const io=new IntersectionObserver(es=>{ visible=es.some(e=>e.isIntersecting); if(!begun && visible){ begun=true; begin(); } },{threshold:.15});
     io.observe(draw_);
   } else { begun=true; begin(); }
   // для проверки: window.__svod.seek(t) перематывает время

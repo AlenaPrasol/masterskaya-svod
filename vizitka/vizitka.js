@@ -13,13 +13,17 @@
     <path id="b-wing" d="M-24 2C-14 -22 8 -50 38 -72C54 -84 66 -94 78 -104C76 -84 70 -66 62 -50C54 -34 48 -16 40 4Z"/>
     <path id="b-wingfar" d="M-18 2C-10 -18 6 -40 30 -58C44 -68 54 -76 64 -84C62 -68 58 -54 50 -40C44 -28 40 -12 34 3Z"/></defs>
     <path d="M40 ${VY}H400" stroke="#3C3C3E" stroke-width="1.5"/>
-    <g class="vine" transform="translate(${VX} ${VY})"><g id="vBend"><g id="vInner" transform="scale(0.9) rotate(-6)">${VINE}</g></g></g>
-    <g class="bird" id="bird"><g transform="translate(-104 -60)"><g id="bFly"><use href="#b-wingfar" transform="translate(98 46)"/><use href="#b-body"/><use href="#b-wing" transform="translate(90 50)"/><circle cx="36" cy="46" r="3.4" fill="${PAPER}"/></g><g id="bSit"><use href="#b-sit"/></g></g></g>`;
+    <g class="vine" transform="translate(${VX} ${VY})"><g id="vBend"><g id="vInner" transform="scale(0.9) rotate(-6)">${VINE}</g></g></g>`;
+  // слой птицы поверх всей страницы: полёт не режется шапкой и краем сцены
+  const layer=document.createElementNS('http://www.w3.org/2000/svg','svg'); layer.setAttribute('class','bird-layer'); layer.setAttribute('aria-hidden','true');
+  layer.innerHTML=`<g class="bird" id="bird"><g transform="translate(-104 -60)"><g id="bFly"><use href="#b-wingfar" transform="translate(98 46)"/><use href="#b-body"/><use href="#b-wing" transform="translate(90 50)"/><circle cx="36" cy="46" r="3.4" fill="${PAPER}"/></g><g id="bSit"><use href="#b-sit"/></g></g></g>`;
+  document.body.appendChild(layer);
   const bird=document.getElementById('bird'), bFly=document.getElementById('bFly'), bSit=document.getElementById('bSit');
   const wingN=bFly.children[2], wingF=bFly.children[0], vBend=document.getElementById('vBend'), vInner=document.getElementById('vInner');
   const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches, SC=0.46, f=v=>v.toFixed(1);
   const PERCH_L={x:-7,y:-248}, pt=svg.createSVGPoint();
   function perch(){ pt.x=PERCH_L.x; pt.y=PERCH_L.y; return pt.matrixTransform(svg.getScreenCTM().inverse().multiply(vInner.getScreenCTM())); }
+  function toPage(x,y){ const m=svg.getScreenCTM(); return {x:m.a*x+m.c*y+m.e+scrollX, y:m.b*x+m.d*y+m.f+scrollY, k:m.a}; }
   const mk=d=>{const p=document.createElementNS('http://www.w3.org/2000/svg','path'); p.setAttribute('d',d); return p;};
   const arrive=()=>{const p=perch(); return mk(`M560 300C480 220 420 80 330 -20C270 -90 150 -110 90 -50C40 0 80 80 170 60C240 44 250 -10 200 -30C150 -50 ${p.x+120} ${p.y-60} ${f(p.x)} ${f(p.y)}`);};
   const away=()=>{const p=perch(); return mk(`M${f(p.x)} ${f(p.y)}C${p.x-40} ${p.y-70} 60 -40 200 -80C340 -120 480 -160 640 -220`);};
@@ -31,7 +35,8 @@
   function draw(){
     let a=st.ang,x=st.x,y=st.y,face=st.face;
     if(st.on==='vine'){ const p=perch(); x=p.x+6*face; y=p.y-27; a=bend.a*.8+st.peck; }
-    bird.setAttribute('transform',`translate(${f(x)} ${f(y)}) rotate(${f(a)}) scale(${(face*SC).toFixed(2)} ${SC})`);
+    const Pg=toPage(x,y);
+    bird.setAttribute('transform',`translate(${f(Pg.x)} ${f(Pg.y)}) rotate(${f(a)}) scale(${(face*SC*Pg.k).toFixed(3)} ${(SC*Pg.k).toFixed(3)})`);
     wingN.setAttribute('transform',`translate(90 50) scale(1 ${st.sy.toFixed(3)})`); wingF.setAttribute('transform',`translate(98 46) rotate(8) scale(.9 ${(st.sy*.95).toFixed(3)})`);
     vBend.setAttribute('transform',`rotate(${f(bend.a)})`);
   }
@@ -63,12 +68,12 @@
   setFly(false); bird.style.display='none'; draw();
   const probe=location.hash==='#probe';
   function begin(){
-    if(reduce){ st.face=1; land(); bend.v=0; draw(); return; }
+    if(reduce){ st.face=1; land(); bend.v=0; draw(); addEventListener('resize',draw); return; }
     bird.style.display=''; start('arrive',arrive(),4.6);
     if(!probe) requestAnimationFrame(frame);
   }
   let begun=false;
-  if('IntersectionObserver' in window){ const io=new IntersectionObserver(es=>{ visible=es.some(e=>e.isIntersecting); if(!begun&&visible){begun=true;begin();} },{threshold:.35}); io.observe(svg); }
+  if('IntersectionObserver' in window){ const io=new IntersectionObserver(es=>{ visible=es.some(e=>e.isIntersecting); if(!begun&&visible){begun=true;begin();} },{threshold:.15}); io.observe(svg); }
   else { begun=true; begin(); }
   window.__viz={advance:sec=>{for(let i=0;i<sec*60;i++)tick(1/60);}, begin:()=>{if(!begun){begun=true;begin();}}};
   const hd=document.querySelector('header'); addEventListener('scroll',()=>hd.classList.toggle('on',scrollY>10),{passive:true});
