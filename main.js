@@ -11,7 +11,7 @@
   // силуэты птицы: сидит (как на обложке) и летит (тело + два крыла, машут масштабом по оси Y от плеча)
   out+=`<defs>
     <filter id="blur3" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="3.5"/></filter>
-    <filter id="blur6" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="7"/></filter>
+    <filter id="blur6" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4.5"/></filter>
     <g id="b-sit"><path d="M8 46L28 40C34 28 48 22 62 26C90 30 120 44 150 56L198 64L196 78L150 78C140 96 110 106 80 100C58 96 40 84 30 66L22 60Z"/>
       <circle cx="40" cy="40" r="3.6" fill="${PAPER}"/><path d="M80 100l-3 18M96 101l2 18" stroke="${SOOT}" stroke-width="3.5" stroke-linecap="round" fill="none"/></g>
     <path id="b-body" d="M2 56L20 50C28 40 40 35 54 37C86 40 118 46 150 52L206 42L198 60L208 80L150 76C122 86 92 88 66 84C46 80 32 72 22 62Z"/>
