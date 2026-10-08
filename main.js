@@ -149,7 +149,7 @@
   window.__svod={st,bend,begin:()=>{if(!begun){begun=true;begin();}},advance:sec=>{for(let i=0;i<sec*60;i++)tick(1/60);}};
 
   // связь камень ↔ строка таблицы
-  const rows=[...document.querySelectorAll('.spec tr[data-id]')];
+  const rows=[...document.querySelectorAll('.vhodit [data-id]')];
   function on(id,state){
     svg.querySelectorAll(`[data-id="${id}"]`).forEach(e=>e.classList.toggle('on',state));
     rows.forEach(r=>r.classList.toggle('on',state&&r.dataset.id===id));
@@ -157,7 +157,7 @@
   svg.querySelectorAll('.stone:not(.key),.lbl[data-id]').forEach(e=>{
     e.addEventListener('mouseenter',()=>on(e.dataset.id,true));
     e.addEventListener('mouseleave',()=>on(e.dataset.id,false));
-    e.addEventListener('click',()=>{const r=document.querySelector(`.spec tr[data-id="${e.dataset.id}"]`); if(r){r.scrollIntoView({behavior:'smooth',block:'center'}); on(e.dataset.id,true); setTimeout(()=>on(e.dataset.id,false),1800);}});
+    e.addEventListener('click',()=>{const r=document.querySelector(`.vhodit [data-id="${e.dataset.id}"]`); if(r){r.scrollIntoView({behavior:'smooth',block:'center'}); on(e.dataset.id,true); setTimeout(()=>on(e.dataset.id,false),1800);}});
   });
   rows.forEach(r=>{r.addEventListener('mouseenter',()=>on(r.dataset.id,true));r.addEventListener('mouseleave',()=>on(r.dataset.id,false));});
   // шапка
