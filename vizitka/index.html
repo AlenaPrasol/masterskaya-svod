@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Алёна Прасолова — мастерская Свод</title>
-<meta name="description" content="Визитка для приходов: записки, расписание, сайт и своё лицо приходу из одних рук. Что уже работает, как идёт дело, как написать.">
+<title>Алёна Прасолова · мастерская Свод · для приходов</title>
+<meta name="description" content="Записки, расписание и сайт для прихода из одних рук. Настрою за неделю, объясню по телефону, останусь рядом. Деньги идут приходу напрямую.">
 <meta name="theme-color" content="#E4E3DE">
-<meta property="og:title" content="Алёна Прасолова — мастерская Свод">
-<meta property="og:description" content="Записки, расписание, сайт и своё лицо — приходу из одних рук. Настрою за неделю, объясню по телефону, останусь рядом.">
+<meta property="og:title" content="Алёна Прасолова · мастерская Свод · для приходов">
+<meta property="og:description" content="Записки, расписание и сайт для прихода из одних рук. Настрою за неделю, объясню по телефону, останусь рядом. Деньги идут приходу напрямую.">
 <meta property="og:image" content="https://svod.svetopis.art/assets/og-svod.png">
 <meta property="og:url" content="https://svod.svetopis.art/vizitka/">
 <meta property="og:type" content="website">
@@ -19,15 +19,19 @@
 .hero h1{font-size:44px;line-height:1.15;margin:8px 0 14px;max-width:none}
 .hero h1 small{display:block;font:400 18px/1.4 "PT Sans",Arial,sans-serif;letter-spacing:.02em;color:var(--soft);margin-top:10px}
 .hero p{max-width:520px;font-size:19px}
+.hero .cta{gap:18px}
 .stage{position:relative}
 .stage svg{width:100%;height:auto;display:block;overflow:visible}
 .card-note{font:400 14px "PT Sans",Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase;margin-bottom:14px}
 .works{grid-template-columns:repeat(2,1fr)}
 .sheet{min-height:0}
 .how{display:grid;grid-template-columns:repeat(3,1fr);gap:34px}
+#melkoe .cta{margin-top:26px}
+#melkoe .lead{max-width:720px}
 .how p{margin:0;color:var(--soft);font-size:17px}
 .how b{display:block;font-weight:400;color:var(--ink);font-size:21px;margin-bottom:6px}
-.more{margin-top:34px;font:400 17px "PT Sans",Arial,sans-serif}
+.prices b{font-size:20px}
+.more{margin-top:26px;font:400 17px "PT Sans",Arial,sans-serif}
 .more a{text-underline-offset:5px}
 @media (max-width:760px){.hero .wrap{grid-template-columns:1fr;padding:22px 20px 40px}.hero h1{font-size:30px}.works,.how{grid-template-columns:1fr}.stage{max-width:360px;margin:0 auto}}
 </style>
@@ -38,7 +42,7 @@
 <header>
  <div class="wrap">
   <a class="brand" href="../"><svg aria-hidden="true"><use href="#znak"/></svg><span class="t">мастерская<b>Свод</b></span></a>
-  <nav><a href="../#poruchit">Что можно поручить</a><a href="../#rabotaet">Что уже работает</a><a class="btn" href="https://t.me/AlenaPrasol">Написать</a></nav>
+  <nav><a href="../#poruchit">Что можно поручить</a><a href="#ceny">Цены</a><a href="#rabotaet">Что уже работает</a><a class="btn" href="https://t.me/AlenaPrasol">Написать</a></nav>
  </div>
 </header>
 <main>
@@ -50,9 +54,9 @@
  <div class="wrap">
   <div>
    <div class="card-note">визитка для приходов</div>
-   <h1>Алёна Прасолова<small>мастерская Свод · сайты, записки, расписание и своё лицо для приходов</small></h1>
-   <p>Настраиваю за неделю, объясняю настоятелю по телефону, остаюсь рядом после запуска. Деньги за записки и сборы идут напрямую в приход — без комиссии и посредников.</p>
-   <div class="cta"><a class="btn fill" href="https://t.me/AlenaPrasol">Написать в Telegram</a><a class="link" href="../#poruchit">Что можно поручить и сколько это стоит</a></div>
+   <h1>Алёна Прасолова<small>мастерская Свод · записки, расписание, сайт и помощник настоятеля</small></h1>
+   <p>Я пою на клиросе и знаю приходскую жизнь изнутри. Настраиваю за неделю, объясняю настоятелю по телефону и остаюсь рядом после запуска. Деньги за записки и сборы идут приходу напрямую, без комиссии и посредников.</p>
+   <div class="cta"><a class="btn fill" href="https://t.me/AlenaPrasol">Написать в Telegram</a><a class="btn" href="tel:+79139213650">Позвонить</a><a class="link" href="#ceny">Сколько это стоит</a></div>
   </div>
   <div class="stage"><svg id="stage" viewBox="0 0 440 320" role="img" aria-label="Дрозд садится на ветку"></svg></div>
  </div>
@@ -61,8 +65,31 @@
 <section id="rabotaet">
  <div class="wrap">
   <h2>Что уже работает</h2>
-  <p class="lead">Не примеры из портфолио, а живые страницы, которыми приходы пользуются каждый день.</p>
+  <p class="lead">Не примеры, а живые страницы, которыми приходы пользуются каждый день.</p>
   <div class="works"><a class="sheet" href="https://svetopis.art/makety/aikhal/variant-3svet/index.html" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Храм Рождества Христова, Айхал</h3><div class="u">записки с мая 2026</div><p>Записки с разбором имён и жертвой по СБП прямо на счёт прихода. По ссылке — новый облик сайта, он скоро заменит нынешний.</p><div class="st"><span>лист 01</span><span>записки</span><span class="r">работает</span></div></a><a class="sheet" href="https://hram-elhovka.ru" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Свято-Введенский храм, Елховка</h3><div class="u">hram-elhovka.ru</div><p>Сайт и сбор на реставрацию храма-памятника к его двухсотлетию. Деньги по реквизитам прихода.</p><div class="st"><span>лист 02</span><span>сайт и сбор</span><span class="r">работает</span></div></a><a class="sheet" href="https://alenaprasol.github.io/degunino-raspisanie/nedelya/" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Приход Кирилла и Мефодия, Западное Дегунино</h3><div class="u">расписание на седмицу</div><p>Расписание выходит в канал прихода само каждое воскресенье, карточка «Сегодня в храме» — каждое утро.</p><div class="st"><span>лист 03</span><span>расписание</span><span class="r">работает</span></div></a><a class="sheet" href="https://hram-elhovka.ru/tetrad/" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Тетрадь «Библия за год», Елховка</h3><div class="u">hram-elhovka.ru/tetrad</div><p>Конспекты сорока уроков, расписание встреч, домашнее — для тех, кто пропустил встречу.</p><div class="st"><span>лист 04</span><span>тетрадь</span><span class="r">работает</span></div></a></div>
+ </div>
+</section>
+
+<section id="ceny">
+ <div class="wrap">
+  <h2>Сколько стоит</h2>
+  <div class="how prices">
+   <div><b>Записки и расписание</b><p>30&nbsp;000&nbsp;₽ настройка, дальше 1&nbsp;000&nbsp;₽ в месяц по желанию</p></div>
+   <div><b>Приход целиком: сайт в облике вашего храма</b><p>от 60&nbsp;000&nbsp;₽, дальше 1&nbsp;500&nbsp;₽ в месяц</p></div>
+   <div><b>Помощник настоятеля: отчёты и письма черновиками</b><p>15&nbsp;000&nbsp;₽, дальше 3&nbsp;500&nbsp;₽ в месяц</p></div>
+  </div>
+  <p class="more">Первым десяти приходам первый год обслуживания без платы. До Пасхи 2027 года.</p>
+  <p class="more">Если перестанете платить за обслуживание, записки и сайт продолжают работать: домен, файлы и пароли принадлежат приходу.</p>
+  <p class="more">Если для прихода это пока много, скажите прямо: начнём с того, что нужнее всего.</p>
+  <p class="more"><a href="../#poruchit">Что входит в каждое предложение →</a></p>
+ </div>
+</section>
+
+<section id="otzyvy">
+ <div class="wrap">
+  <h2>Что говорят приходы</h2>
+  <p class="lead">Слово настоятелей. Сайт прихода, чтобы посмотреть самим.</p>
+  <div class="otzyvy"><article class="otzyv" id="otzyv-degunino"><figure><img src="../assets/otzyvy/degunino-hram.jpg" alt="Храм святых равноапостольных Кирилла и Мефодия в Западном Дегунине" loading="lazy"><figcaption>расписание, карточка дня, отчёты и письма</figcaption></figure><div class="slovo"><blockquote class="glavnoe">Её работа реально освобождает время для настоящей живой деятельности — общения с людьми и молитвы.</blockquote><details class="polnyy"><summary>Отзыв целиком</summary><p>Хочу поблагодарить Алёну за её деятельность и сказать, что в настоящее время, и особенно для храмов, это большая помощь.</p><p>Приходская жизнь очень разнообразная, и приходится быстро решать какие-то вопросы. Благодаря Алёне мы стали осуществлять больше проектов в короткие сроки, получилось автоматизировать некоторые моменты: календарь, публикации в разных мессенджерах. Её работа реально освобождает время для настоящей живой деятельности — общения с людьми и молитвы. Алёна воцерковлённый человек и понимает «кухню» изнутри. И это тоже экономит время. Также хочется сказать о быстрой реакции на просьбы: Алёна всегда на связи и готова помочь.</p><p>Приход святых равноапостольных Кирилла и Мефодия в Дегунине г. Москвы очень благодарит Алёну за труды.</p></details><div class="podpis"><a href="http://hram-km-degunino.ru" target="_blank" rel="noopener">Храм святых равноапостольных Кирилла и Мефодия, учителей Словенских, в Дегунине г. Москвы</a><span>иерей Даниил, настоятель</span><a class="sayt" href="http://hram-km-degunino.ru" target="_blank" rel="noopener">Сайт прихода: <b>hram-km-degunino.ru</b></a><div class="sprosit"><span>Спросить о работе можно напрямую:</span><a class="tel" href="tel:+79241744592">иерей Даниил <b>+7 924 174-45-92</b></a></div></div></div></article><article class="otzyv" id="otzyv-elhovka"><figure><img src="../assets/otzyvy/elhovka-hram.jpg" alt="Свято-Введенский храм села Елховка" loading="lazy"><figcaption>сайт и сбор на реставрацию, тетрадь «Библия за год», письма предприятиям</figcaption></figure><div class="slovo"><blockquote class="glavnoe">Алёна человек церковный, объяснять ей ничего не нужно. Сделала для нас и сайт, и тетрадь для группы по Библии, и письма, и всё довела до конца.</blockquote><div class="podpis"><a href="https://hram-elhovka.ru" target="_blank" rel="noopener">Свято-Введенский храм села Елховка</a><span>протоиерей Димитрий, настоятель</span><a class="sayt" href="https://hram-elhovka.ru" target="_blank" rel="noopener">Сайт прихода: <b>hram-elhovka.ru</b></a></div></div></article></div>
  </div>
 </section>
 
@@ -72,9 +99,18 @@
   <div class="how">
    <div><b>Разговор</b><p>Что нужно приходу и чем сейчас неудобно. Полчаса по телефону, без анкет.</p></div>
    <div><b>Показ</b><p>Показываю, как это будет выглядеть, и называю цену заранее. Берусь только после вашего «да».</p></div>
-   <div><b>Запуск и рядом</b><p>Готовое отдаю с памяткой человеческим языком. Поправить, дописать, объяснить — остаюсь на связи.</p></div>
+   <div><b>Запуск и рядом</b><p>Готовое отдаю с памяткой человеческим языком. Поправить, дописать, объяснить: остаюсь на связи.</p></div>
   </div>
-  <p class="more">Цены и полный список работ — на <a href="../">странице мастерской</a>. Если приходу сейчас не по средствам — скажите прямо, что-нибудь придумаем.</p>
+  <p class="more">Полный список работ на <a href="../">странице мастерской</a>.</p>
+ </div>
+</section>
+
+<section id="melkoe">
+ <div class="wrap">
+  <h2>Афиша, грамоты, памятка к празднику</h2>
+  <p class="lead">Мелкие работы для прихода считает мой помощник в MAX: афиши на праздник и на весь церковный год, грамоты для воскресной школы, памятки, презентации к приходской встрече. Смета за пару минут, сначала черновик, оплата после.</p>
+  <div class="cta"><a class="btn fill" href="https://svod.svetopis.art/agent?start=prihod">Открыть помощника в MAX</a></div>
+  <p class="more">Открытки к праздникам приходам в подарок, для работы: напишите, пришлю.</p>
  </div>
 </section>
 
@@ -85,7 +121,9 @@
    <p class="lead">Напишите в двух словах, какой у вас приход и что хотелось бы устроить. Отвечу и скажу, берусь или нет.</p>
    <div class="ways">
     <a href="https://t.me/AlenaPrasol"><span>Telegram</span><small>@AlenaPrasol</small></a>
+    <a href="tel:+79139213650"><span>Телефон</span><small>+7 913 921-36-50</small></a>
     <a href="mailto:joyka08@mail.ru"><span>Почта</span><small>joyka08@mail.ru</small></a>
+    <a href="https://svod.svetopis.art/agent?start=prihod"><span>Помощник в MAX</span><small>svod.svetopis.art/agent</small></a>
     <a href="https://t.me/masterskaya_svod"><span>Канал мастерской</span><small>t.me/masterskaya_svod</small></a>
    </div>
   </div>
