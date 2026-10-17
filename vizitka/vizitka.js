@@ -12,7 +12,7 @@
     <path id="b-body" d="M2 56L20 50C28 40 40 35 54 37C86 40 118 46 150 52L206 42L198 60L208 80L150 76C122 86 92 88 66 84C46 80 32 72 22 62Z"/>
     <path id="b-wing" d="M-24 2C-14 -22 8 -50 38 -72C54 -84 66 -94 78 -104C76 -84 70 -66 62 -50C54 -34 48 -16 40 4Z"/>
     <path id="b-wingfar" d="M-18 2C-10 -18 6 -40 30 -58C44 -68 54 -76 64 -84C62 -68 58 -54 50 -40C44 -28 40 -12 34 3Z"/></defs>
-    <path d="M40 ${VY}H400" stroke="#3C3C3E" stroke-width="1.5"/>
+    <path d="M78 ${VY}H206" stroke="#3C3C3E" stroke-width="1.5"/>
     <g class="vine" transform="translate(${VX} ${VY})"><g id="vBend"><g id="vInner" transform="scale(0.9) rotate(-6)">${VINE}</g></g></g>`;
   // слой птицы поверх всей страницы: полёт не режется шапкой и краем сцены
   const layer=document.createElementNS('http://www.w3.org/2000/svg','svg'); layer.setAttribute('class','bird-layer'); layer.setAttribute('aria-hidden','true');

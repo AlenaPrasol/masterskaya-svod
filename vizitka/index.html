@@ -15,13 +15,36 @@
 <link rel="stylesheet" href="../assets/fonts/fonts.css">
 <link rel="stylesheet" href="../style.css">
 <style>
-.hero .wrap{grid-template-columns:1.15fr 1fr;min-height:0;padding:40px 40px 56px}
+.hero .wrap{display:block;position:relative;min-height:0;padding:40px 40px 60px}
+.hero .wrap>div:first-child{max-width:790px}
 .hero h1{font-size:44px;line-height:1.15;margin:8px 0 14px;max-width:none}
 .hero h1 small{display:block;font:400 18px/1.4 "PT Sans",Arial,sans-serif;letter-spacing:.02em;color:var(--soft);margin-top:10px}
 .hero p{max-width:520px;font-size:19px}
-.hero .cta{gap:18px}
-.stage{position:relative}
+.hero .cta{gap:14px 16px}
+.hero .cta .link{margin-left:8px}
+/* лоза с дроздом: маленькая, в правом нижнем углу первого экрана */
+.hero .wrap>.stage{position:absolute;right:56px;bottom:34px;width:118px;z-index:1}
 .stage svg{width:100%;height:auto;display:block;overflow:visible}
+/* сурик знака: короткая линия над заголовками разделов */
+main section h2{position:relative;padding-top:20px}
+main section h2::before{content:"";position:absolute;left:0;top:0;width:44px;height:3px;background:var(--sur)}
+/* работы: карточки-кнопки */
+.works .sheet{background:linear-gradient(180deg,#E9E8E3,#DEDDD7);border-color:#C3C2BC;border-radius:3px;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 2px rgba(32,30,28,.1),0 8px 18px -14px rgba(32,30,28,.4);
+  transition:transform .2s cubic-bezier(.2,.7,.2,1),box-shadow .2s ease,border-color .2s}
+.works a.sheet:hover{transform:translateY(-4px);border-color:var(--ink);box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 2px 4px rgba(32,30,28,.12),0 18px 30px -16px rgba(32,30,28,.5)}
+.works a.sheet:active{transform:translateY(-1px);transition-duration:.06s;box-shadow:inset 0 1px 0 rgba(255,255,255,.5),0 1px 2px rgba(32,30,28,.14),0 6px 12px -10px rgba(32,30,28,.45)}
+.works .sheet .niz{margin-top:22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.works .sheet .st{margin-top:0}
+.works .sheet .st .r{background:var(--sur);color:#F4F1EA;border-color:var(--sur)}
+.works .sheet .st .r::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:#F4F1EA;margin-right:7px;vertical-align:1px}
+.works .otkr{font:400 16px "PT Sans",Arial,sans-serif;color:var(--ink2);white-space:nowrap;border-bottom:1px solid var(--line);padding-bottom:1px}
+.works .otkr i{font-style:normal;display:inline-block;transition:transform .2s ease}
+.works a.sheet:hover .otkr{border-color:var(--ink)}
+.works a.sheet:hover .otkr i{transform:translateX(4px)}
+.works .sheet.fakt{background:transparent;box-shadow:none;border-style:dashed}
+@media (hover:none){.works a.sheet:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.works .sheet,.works a.sheet:hover,.works a.sheet:active{transform:none;transition:none}}
 .card-note{font:400 14px "PT Sans",Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase;margin-bottom:14px}
 .works{grid-template-columns:repeat(2,1fr)}
 .sheet{min-height:0}
@@ -33,12 +56,19 @@
 .prices b{font-size:20px}
 .more{margin-top:26px;font:400 17px "PT Sans",Arial,sans-serif}
 .more a{text-underline-offset:5px}
-@media (max-width:760px){.hero .wrap{grid-template-columns:1fr;padding:22px 20px 40px}.hero h1{font-size:30px}.works,.how{grid-template-columns:1fr}.stage{max-width:360px;margin:0 auto}}
+@media (max-width:760px){.hero .wrap{padding:22px 20px 40px}.hero h1{font-size:30px}.works,.how{grid-template-columns:1fr}
+ .hero .wrap>.stage{right:14px;top:12px;bottom:auto;width:66px}
+ .card-note,.hero h1{padding-right:70px}
+ .hero .cta{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:stretch}
+ .hero .cta .btn{text-align:center;padding:13px 10px}
+ .hero .cta .btn.sur{grid-column:1/-1}
+ .hero .cta .link{grid-column:1/-1;margin:6px 0 0;justify-self:start}
+ .works .otkr{font-size:15px}}
 </style>
 </head>
 <body>
 <svg class="grain" width="100%" height="100%" aria-hidden="true"><filter id="g"><feTurbulence type="fractalNoise" baseFrequency=".9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 .3 0 0 0 0 .3 0 0 0 0 .3 0 0 0 .35 0"/></filter><rect width="100%" height="100%" filter="url(#g)"/></svg>
-<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="znak" viewBox="0 0 1000 1000"><path d="M140 520A360 360 0 0 1 391.8 176.7L415.2 317.0A220 220 0 0 0 280 520Z M608.2 176.7A360 360 0 0 1 860 520L720 520A220 220 0 0 0 584.8 317.0Z M140 520H280V920H140Z M720 520H860V920H720Z M100 490H320V550H100Z M680 490H900V550H680Z M400 120H600L560 320H440Z"/></symbol></defs></svg>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><symbol id="znak" viewBox="0 0 1000 1000"><path d="M140 520A360 360 0 0 1 391.8 176.7L415.2 317.0A220 220 0 0 0 280 520Z M608.2 176.7A360 360 0 0 1 860 520L720 520A220 220 0 0 0 584.8 317.0Z M140 520H280V920H140Z M720 520H860V920H720Z M100 490H320V550H100Z M680 490H900V550H680Z M400 120H600L560 320H440Z"/><path class="kamen" d="M447 236H553L541 340H459Z" fill="#A8412C"/></symbol></defs></svg>
 <header>
  <div class="wrap">
   <a class="brand" href="../"><svg aria-hidden="true"><use href="#znak"/></svg><span class="t">мастерская<b>Свод</b></span></a>
@@ -56,9 +86,9 @@
    <div class="card-note">визитка для приходов</div>
    <h1>Алёна Прасолова<small>мастерская Свод · записки, расписание, сайт и помощник настоятеля</small></h1>
    <p>Я пою на клиросе и знаю приходскую жизнь изнутри. Настраиваю за неделю, объясняю настоятелю по телефону и остаюсь рядом после запуска. Деньги за записки и сборы идут приходу напрямую, без комиссии и посредников.</p>
-   <div class="cta"><a class="btn fill" href="https://t.me/AlenaPrasol">Написать в Telegram</a><a class="btn" href="tel:+79139213650">Позвонить</a><a class="link" href="#ceny">Сколько это стоит</a></div>
+   <div class="cta"><a class="btn sur" href="https://t.me/AlenaPrasol">Написать в Telegram</a><a class="btn" href="tel:+79139213650">Позвонить</a><a class="btn" href="#otzyvy">Отзывы настоятелей</a><a class="link" href="#ceny">Сколько это стоит</a></div>
   </div>
-  <div class="stage"><svg id="stage" viewBox="0 0 440 320" role="img" aria-label="Дрозд садится на ветку"></svg></div>
+  <div class="stage"><svg id="stage" viewBox="70 36 140 284" role="img" aria-label="Дрозд садится на ветку"></svg></div>
  </div>
 </div>
 
@@ -66,7 +96,7 @@
  <div class="wrap">
   <h2>Что уже работает</h2>
   <p class="lead">Не примеры, а живые страницы, которыми приходы пользуются каждый день.</p>
-  <div class="works"><a class="sheet" href="https://svetopis.art/makety/aikhal/variant-3svet/index.html" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Храм Рождества Христова, Айхал</h3><div class="u">записки с мая 2026</div><p>Записки с разбором имён и жертвой по СБП прямо на счёт прихода. По ссылке - новый облик сайта, он скоро заменит нынешний.</p><div class="st"><span>лист 01</span><span>записки</span><span class="r">работает</span></div></a><a class="sheet" href="https://hram-elhovka.ru" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Свято-Введенский храм, Елховка</h3><div class="u">hram-elhovka.ru</div><p>Сайт и сбор на реставрацию храма-памятника к его двухсотлетию. Деньги по реквизитам прихода.</p><div class="st"><span>лист 02</span><span>сайт и сбор</span><span class="r">работает</span></div></a><a class="sheet" href="https://alenaprasol.github.io/degunino-raspisanie/nedelya/" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Приход Кирилла и Мефодия, Западное Дегунино</h3><div class="u">расписание на седмицу</div><p>Расписание выходит в канал прихода само каждое воскресенье, карточка «Сегодня в храме» - каждое утро.</p><div class="st"><span>лист 03</span><span>расписание</span><span class="r">работает</span></div></a><a class="sheet" href="https://hram-elhovka.ru/tetrad/" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Тетрадь «Библия за год», Елховка</h3><div class="u">hram-elhovka.ru/tetrad</div><p>Конспекты сорока уроков, расписание встреч, домашнее - для тех, кто пропустил встречу.</p><div class="st"><span>лист 04</span><span>тетрадь</span><span class="r">работает</span></div></a></div>
+  <div class="works"><a class="sheet" href="https://alenaprasol.github.io/degunino-raspisanie/nedelya/" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Приход Кирилла и Мефодия, Западное Дегунино</h3><div class="u">расписание на седмицу</div><p>Расписание выходит в канал прихода само каждое воскресенье, карточка «Сегодня в храме» - каждое утро.</p><div class="niz"><div class="st"><span>лист 01</span><span>расписание</span><span class="r">работает</span></div><span class="otkr">Открыть сайт <i aria-hidden="true">→</i></span></div></a><a class="sheet" href="https://svetopis.art/makety/aikhal/variant-3svet/index.html" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Храм Рождества Христова, Айхал</h3><div class="u">записки с мая 2026</div><p>Записки с разбором имён и жертвой по СБП прямо на счёт прихода. По ссылке - новый облик сайта, он скоро заменит нынешний.</p><div class="niz"><div class="st"><span>лист 02</span><span>записки</span><span class="r">работает</span></div><span class="otkr">Открыть сайт <i aria-hidden="true">→</i></span></div></a><a class="sheet" href="https://hram-elhovka.ru" target="_blank" rel="noopener"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Свято-Введенский храм, Елховка</h3><div class="u">hram-elhovka.ru</div><p>Сайт и сбор на реставрацию храма-памятника к его двухсотлетию. Деньги по реквизитам прихода.</p><div class="niz"><div class="st"><span>лист 03</span><span>сайт и сбор</span><span class="r">работает</span></div><span class="otkr">Открыть сайт <i aria-hidden="true">→</i></span></div></a><div class="sheet fakt"><svg class="corner" viewBox="0 0 1000 1000" aria-hidden="true"><use href="#znak"/></svg><h3>Тетрадь «Библия за год», Елховка</h3><div class="u">для приходской группы по Библии</div><p>Конспекты сорока уроков, расписание встреч, домашнее - для тех, кто пропустил встречу.</p><div class="niz"><div class="st"><span>лист 04</span><span>тетрадь</span></div></div></div></div>
  </div>
 </section>
 
@@ -89,7 +119,7 @@
  <div class="wrap">
   <h2>Что говорят приходы</h2>
   <p class="lead">Слово настоятелей. Сайт прихода, чтобы посмотреть самим.</p>
-  <div class="otzyvy"><article class="otzyv" id="otzyv-degunino"><figure><img src="../assets/otzyvy/degunino-hram.jpg" alt="Храм святых равноапостольных Кирилла и Мефодия в Западном Дегунине" loading="lazy"><figcaption>расписание, карточка дня, отчёты и письма</figcaption></figure><div class="slovo"><blockquote class="glavnoe">Её работа реально освобождает время для настоящей живой деятельности — общения с людьми и молитвы.</blockquote><details class="polnyy"><summary>Отзыв целиком</summary><p>Хочу поблагодарить Алёну за её деятельность и сказать, что в настоящее время, и особенно для храмов, это большая помощь.</p><p>Приходская жизнь очень разнообразная, и приходится быстро решать какие-то вопросы. Благодаря Алёне мы стали осуществлять больше проектов в короткие сроки, получилось автоматизировать некоторые моменты: календарь, публикации в разных мессенджерах. Её работа реально освобождает время для настоящей живой деятельности — общения с людьми и молитвы. Алёна воцерковлённый человек и понимает «кухню» изнутри. И это тоже экономит время. Также хочется сказать о быстрой реакции на просьбы: Алёна всегда на связи и готова помочь.</p><p>Приход святых равноапостольных Кирилла и Мефодия в Дегунине г. Москвы очень благодарит Алёну за труды.</p></details><div class="podpis"><a href="http://hram-km-degunino.ru" target="_blank" rel="noopener">Храм святых равноапостольных Кирилла и Мефодия, учителей Словенских, в Дегунине г. Москвы</a><span>иерей Даниил, настоятель</span><a class="sayt" href="http://hram-km-degunino.ru" target="_blank" rel="noopener">Сайт прихода: <b>hram-km-degunino.ru</b></a><div class="sprosit"><span>Спросить о работе можно напрямую:</span><a class="tel" href="tel:+79241744592">иерей Даниил <b>+7 924 174-45-92</b></a></div></div></div></article><article class="otzyv" id="otzyv-elhovka"><figure><img src="../assets/otzyvy/elhovka-hram.jpg" alt="Свято-Введенский храм села Елховка" loading="lazy"><figcaption>сайт и сбор на реставрацию, тетрадь «Библия за год», письма предприятиям</figcaption></figure><div class="slovo"><blockquote class="glavnoe">Алёна человек церковный, объяснять ей ничего не нужно. Сделала для нас и сайт, и тетрадь для группы по Библии, и письма, и всё довела до конца.</blockquote><div class="podpis"><a href="https://hram-elhovka.ru" target="_blank" rel="noopener">Свято-Введенский храм села Елховка</a><span>протоиерей Димитрий, настоятель</span><a class="sayt" href="https://hram-elhovka.ru" target="_blank" rel="noopener">Сайт прихода: <b>hram-elhovka.ru</b></a></div></div></article></div>
+  <div class="otzyvy"><article class="otzyv" id="otzyv-degunino"><figure><img src="../assets/otzyvy/degunino-hram.jpg" alt="Храм святых равноапостольных Кирилла и Мефодия в Западном Дегунине" loading="lazy"><figcaption>расписание, карточка дня, отчёты и письма</figcaption></figure><div class="slovo"><blockquote class="glavnoe">Её работа реально освобождает время для настоящей живой деятельности — общения с людьми и молитвы.</blockquote><div class="polnyy"><div class="metka">Отзыв целиком</div><p>Хочу поблагодарить Алёну за её деятельность и сказать, что в настоящее время, и особенно для храмов, это большая помощь.</p><p>Приходская жизнь очень разнообразная, и приходится быстро решать какие-то вопросы. Благодаря Алёне мы стали осуществлять больше проектов в короткие сроки, получилось автоматизировать некоторые моменты: календарь, публикации в разных мессенджерах. Её работа реально освобождает время для настоящей живой деятельности — общения с людьми и молитвы. Алёна воцерковлённый человек и понимает «кухню» изнутри. И это тоже экономит время. Также хочется сказать о быстрой реакции на просьбы: Алёна всегда на связи и готова помочь.</p><p>Приход святых равноапостольных Кирилла и Мефодия в Дегунине г. Москвы очень благодарит Алёну за труды.</p></div><div class="podpis"><a href="http://hram-km-degunino.ru" target="_blank" rel="noopener">Храм святых равноапостольных Кирилла и Мефодия, учителей Словенских, в Дегунине г. Москвы</a><span>иерей Даниил, настоятель</span><a class="sayt" href="http://hram-km-degunino.ru" target="_blank" rel="noopener">Сайт прихода: <b>hram-km-degunino.ru</b></a><div class="sprosit"><span>Спросить о работе можно напрямую:</span><a class="tel" href="tel:+79241744592">иерей Даниил <b>+7 924 174-45-92</b></a></div></div></div></article><article class="otzyv" id="otzyv-elhovka"><figure><img src="../assets/otzyvy/elhovka-hram.jpg" alt="Свято-Введенский храм села Елховка" loading="lazy"><figcaption>сайт и сбор на реставрацию, 36 писем предприятиям с договором и актом, тетрадь «Библия за год»</figcaption></figure><div class="slovo"><blockquote class="glavnoe">Алёна человек церковный, объяснять ей ничего не нужно. Сделала для нас и сайт, и тетрадь для группы по Библии, и письма, и всё довела до конца.</blockquote><div class="podpis"><a href="https://hram-elhovka.ru" target="_blank" rel="noopener">Свято-Введенский храм села Елховка</a><span>протоиерей Димитрий, настоятель</span><a class="sayt" href="https://hram-elhovka.ru" target="_blank" rel="noopener">Сайт прихода: <b>hram-elhovka.ru</b></a></div></div></article></div>
  </div>
 </section>
 

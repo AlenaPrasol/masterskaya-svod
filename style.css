@@ -1,4 +1,4 @@
-:root{--soot:#201E1C;--paper:#E4E3DE;--paper2:#D8D7D2;--paper3:#CFCEC8;--ink:#3C3C3E;--ink2:#2A2A2C;--soft:#6A6A6C;--line:#B9B8B3;--red:#B4452C;--w:1200px}
+:root{--soot:#201E1C;--paper:#E4E3DE;--paper2:#D8D7D2;--paper3:#CFCEC8;--ink:#3C3C3E;--ink2:#2A2A2C;--soft:#6A6A6C;--line:#B9B8B3;--red:#B4452C;--sur:#A8412C;--sur2:#8E3522;--w:1200px}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;position:relative;background:var(--paper);color:var(--ink);font-family:"PT Serif",Georgia,"Times New Roman",serif;font-size:18px;line-height:1.6;-webkit-font-smoothing:antialiased}
@@ -17,12 +17,22 @@ header .wrap{display:flex;align-items:center;justify-content:space-between;heigh
 nav{display:flex;gap:30px;align-items:center;font:400 16px "PT Sans",Arial,sans-serif}
 nav a{text-decoration:none;opacity:.9}
 nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
-.btn{display:inline-block;border:1.5px solid var(--ink);color:var(--ink);padding:12px 26px;font:400 16px "PT Sans",Arial,sans-serif;text-decoration:none;border-radius:2px;background:transparent;cursor:pointer;transition:background .2s,color .2s}
-.btn:hover{background:var(--ink);color:var(--paper)}
-.btn.fill{background:var(--ink);color:var(--paper)}
-.btn.fill:hover{background:var(--ink2)}
+.btn{display:inline-block;border:1.5px solid var(--ink);color:var(--ink);padding:12px 26px;font:400 16px "PT Sans",Arial,sans-serif;text-decoration:none;border-radius:3px;cursor:pointer;
+  background:linear-gradient(180deg,#EDECE7,#DCDBD5);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),0 1px 2px rgba(32,30,28,.16),0 6px 14px -8px rgba(32,30,28,.35);
+  transition:transform .16s ease,box-shadow .16s ease,background .2s,color .2s;-webkit-tap-highlight-color:transparent}
+.btn:hover{background:linear-gradient(180deg,#F1F0EB,#E2E1DB);transform:translateY(-1px);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),0 2px 3px rgba(32,30,28,.16),0 10px 20px -10px rgba(32,30,28,.42)}
+.btn:active{transform:translateY(1px);background:linear-gradient(180deg,#D6D5CF,#E2E1DB);box-shadow:inset 0 2px 4px rgba(32,30,28,.22),0 0 0 rgba(32,30,28,0);transition-duration:.06s}
+.btn.fill{color:var(--paper);border-color:var(--ink2);background:linear-gradient(180deg,#4B4B4E,#2E2E30)}
+.btn.fill:hover{background:linear-gradient(180deg,#535356,#333335)}
+.btn.fill:active{background:linear-gradient(180deg,#2A2A2C,#3A3A3C);box-shadow:inset 0 2px 5px rgba(0,0,0,.4)}
+.btn.sur{color:#F4F1EA;border-color:var(--sur2);background:linear-gradient(180deg,#B8513A,#9A3B27);box-shadow:inset 0 1px 0 rgba(255,255,255,.18),0 1px 2px rgba(80,24,12,.25),0 6px 14px -8px rgba(80,24,12,.5)}
+.btn.sur:hover{background:linear-gradient(180deg,#BF5841,#A1412C)}
+.btn.sur:active{background:linear-gradient(180deg,#8E3522,#A0412C);box-shadow:inset 0 2px 5px rgba(60,16,8,.45)}
 .btn.red{border-color:var(--red);color:var(--red)}
 .btn.red:hover{background:var(--red);color:var(--paper)}
+@media (hover:none){.btn:hover{transform:none}}
+@media (prefers-reduced-motion:reduce){.btn,.btn:hover,.btn:active{transform:none}}
 :focus-visible{outline:2px solid var(--red);outline-offset:3px}
 /* первый экран */
 .hero{position:relative;overflow:hidden}
@@ -30,6 +40,10 @@ nav a:hover{opacity:1;text-decoration:underline;text-underline-offset:5px}
 .hero .desc{font:400 14px "PT Sans",Arial,sans-serif;letter-spacing:.34em;text-transform:uppercase;margin-bottom:18px}
 .hero .wm svg{display:block;width:100%;max-width:560px;height:auto}
 .hero h1{font:400 30px/1.35 "PT Serif";margin:36px 0 16px;max-width:520px}
+/* главная, первый экран (17.10.2026): заголовок крупнее и плотнее, короткая линия сурика над ним */
+.hero .wm+h1{position:relative;font-size:40px;line-height:1.16;letter-spacing:-.012em;color:var(--soot);max-width:580px;margin:46px 0 18px}
+.hero .wm+h1::before{content:"";position:absolute;left:0;top:-22px;width:56px;height:3px;background:var(--sur)}
+.hero .draw .stone.key{fill:var(--sur)}
 .hero p{max-width:470px;color:var(--soft);margin:0 0 34px}
 .hero .cta{display:flex;gap:26px;align-items:center;flex-wrap:wrap}
 .hero .cta a.link{font:400 16px "PT Sans",Arial,sans-serif;text-decoration:underline;text-underline-offset:5px}
@@ -130,12 +144,13 @@ footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;fon
 .otzyv figure img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line);filter:saturate(.85)}
 .otzyv figcaption{font:400 13px "PT Sans",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-top:12px}
 .otzyv .glavnoe{margin:0 0 22px;padding:4px 0 4px 22px;border-left:3px solid var(--red);font:italic 25px/1.4 "PT Serif";color:var(--ink2)}
-.otzyv .polnyy{border-top:1px solid var(--line);padding:12px 0 0}
-.otzyv .polnyy summary{cursor:pointer;list-style:none;font:400 16px "PT Sans",Arial,sans-serif;color:var(--ink);display:flex;align-items:center;gap:10px}
-.otzyv .polnyy summary::-webkit-details-marker{display:none}
-.otzyv .polnyy summary::after{content:"+";color:var(--red);font:400 24px/1 "PT Sans",Arial,sans-serif}
-.otzyv .polnyy[open] summary::after{content:"–"}
-.otzyv .polnyy p{margin:14px 0 0;font-size:16.5px;color:var(--ink)}
+.otzyv .polnyy{border-top:1px solid var(--line);padding:16px 0 0}
+.otzyv .polnyy .metka{font:400 12px "PT Sans",Arial,sans-serif;letter-spacing:.26em;text-transform:uppercase;color:var(--sur)}
+.otzyv .polnyy p{margin:12px 0 0;font-size:17px;line-height:1.62;color:var(--ink);max-width:680px}
+.otzyv .polnyy .dalee summary{margin-top:14px;cursor:pointer;list-style:none;font:400 16px "PT Sans",Arial,sans-serif;color:var(--ink2);display:inline-flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:2px}
+.otzyv .polnyy .dalee summary::-webkit-details-marker{display:none}
+.otzyv .polnyy .dalee summary::after{content:"+";color:var(--sur);font:400 22px/1 "PT Sans",Arial,sans-serif}
+.otzyv .polnyy .dalee[open] summary{display:none}
 .otzyv .podpis{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:4px;font-family:"PT Sans",Arial,sans-serif;font-size:16px}
 .otzyv .podpis a{text-decoration:none;color:var(--ink2);border-bottom:1px solid var(--line);align-self:flex-start}
 .otzyv .podpis a:hover{border-color:var(--ink)}
@@ -154,6 +169,8 @@ footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;fon
  .btn{padding:10px 18px;font-size:15px}
  .hero .wrap{grid-template-columns:1fr;gap:26px;padding:26px 20px 44px;min-height:0}
  .hero h1{font-size:23px;margin-top:22px}
+ .hero .wm+h1{font-size:29px;line-height:1.2;margin-top:34px}
+ .hero .wm+h1::before{top:-17px;width:44px}
  .hero p{font-size:16px}
  .hero .cta{flex-direction:column;align-items:flex-start;gap:16px}
  .okno{width:70%;left:-20%;top:-6%}
