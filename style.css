@@ -122,6 +122,32 @@ a.sheet:hover{transform:translateY(-2px);box-shadow:0 8px 24px -14px rgba(60,60,
 footer{border-top:1px solid var(--ink);padding:40px 0 56px}
 footer .wrap{display:flex;justify-content:space-between;align-items:flex-end;font:400 15px/1.7 "PT Sans",Arial,sans-serif;color:var(--soft);gap:30px;flex-wrap:wrap}
 .ornament{height:34px;margin:0 auto;display:block;opacity:.9}
+
+/* отзывы приходов */
+.otzyvy{display:grid;gap:40px}
+.otzyv{display:grid;grid-template-columns:380px 1fr;gap:44px;align-items:start;border:1px solid var(--line);background:var(--paper2);padding:30px}
+.otzyv figure{margin:0}
+.otzyv figure img{display:block;width:100%;aspect-ratio:3/2;object-fit:cover;border:1px solid var(--line);filter:saturate(.85)}
+.otzyv figcaption{font:400 13px "PT Sans",Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin-top:12px}
+.otzyv .glavnoe{margin:0 0 22px;padding:4px 0 4px 22px;border-left:3px solid var(--red);font:italic 25px/1.4 "PT Serif";color:var(--ink2)}
+.otzyv .polnyy{border-top:1px solid var(--line);padding:12px 0 0}
+.otzyv .polnyy summary{cursor:pointer;list-style:none;font:400 16px "PT Sans",Arial,sans-serif;color:var(--ink);display:flex;align-items:center;gap:10px}
+.otzyv .polnyy summary::-webkit-details-marker{display:none}
+.otzyv .polnyy summary::after{content:"+";color:var(--red);font:400 24px/1 "PT Sans",Arial,sans-serif}
+.otzyv .polnyy[open] summary::after{content:"–"}
+.otzyv .polnyy p{margin:14px 0 0;font-size:16.5px;color:var(--ink)}
+.otzyv .podpis{margin-top:22px;padding-top:16px;border-top:1px solid var(--line);display:flex;flex-direction:column;gap:4px;font-family:"PT Sans",Arial,sans-serif;font-size:16px}
+.otzyv .podpis a{text-decoration:none;color:var(--ink2);border-bottom:1px solid var(--line);align-self:flex-start}
+.otzyv .podpis a:hover{border-color:var(--ink)}
+.otzyv .podpis span{color:var(--soft)}
+.otzyv .podpis .sayt{margin-top:8px;color:var(--soft);border-bottom:0}
+.otzyv .podpis .sayt b{font-weight:400;color:var(--ink2);border-bottom:1px solid var(--line)}
+.otzyv .podpis .sayt:hover b{border-color:var(--ink)}
+.otzyv .podpis .sprosit{margin-top:12px;display:flex;flex-direction:column;gap:4px}
+.otzyv .podpis .tel{color:var(--red);border-bottom:0;white-space:nowrap}
+.otzyv .podpis .tel b{font-weight:700}
+@media (max-width:900px){.otzyv{grid-template-columns:1fr;gap:26px;padding:22px}.otzyv .glavnoe{font-size:21px}}
+
 @media (max-width:760px){
  .wrap{padding:0 20px}
  header .wrap{height:64px} nav a:not(.btn){display:none} nav{gap:0}
